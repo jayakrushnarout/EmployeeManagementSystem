@@ -1,5 +1,6 @@
 package com.springboot.web.service;
 
+import com.springboot.web.exception.EmployeeNotFoundException;
 import com.springboot.web.model.Employee;
 import com.springboot.web.repository.EmpoyeeRepository;
 import jakarta.transaction.Transactional;
@@ -22,7 +23,7 @@ public class EmployeeServiceImpl implements EmpoyeeService
 
     @Override
     public Employee getEmployeeById(Integer id) {
-        return repo.findById(id).get();
+        return repo.findById(id).orElseThrow(() -> new EmployeeNotFoundException("Please Enter valid Employee id"));
     }
 
     @Override
