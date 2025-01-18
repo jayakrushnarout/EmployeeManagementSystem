@@ -31,7 +31,7 @@ public class EmployeeController
 
     }
 
-    @GetMapping("/getEmployee/{id}")
+    @GetMapping("/EmployeeById/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable Integer id)
     {
         return new ResponseEntity<>(service.getEmployeeById(id),HttpStatus.OK);
